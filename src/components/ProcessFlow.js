@@ -132,10 +132,10 @@ const ProcessFlow = () => {
             {steps.map((step) => (
               <motion.div
                 key={step.id}
-                className="step-item"
+                className="process-step"
                 variants={itemVariants}
               >
-                <div className="step-icon">
+                <div className="process-icon">
                   <i className={`fas ${step.icon}`}></i>
                 </div>
                 <h3>{step.title}</h3>

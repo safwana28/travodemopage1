@@ -13,26 +13,37 @@ const AboutUs = () => {
     {
       id: 2,
       title: (
-        <>
-          Empowering Global
-          <br />
-          Patients Through
-          <br />
-          <span>Indian Medical Excellence</span>
-        </>
+        <div style={{ display: 'inline-block' }}>
+          <div>
+            <span className="title-word">Empowering</span>
+          </div>
+          <div>
+            <span className="title-word">Global</span>
+          </div>
+          <div>
+            <span className="title-word">Patients Through</span>
+          </div>
+          <div>
+            <span className="title-word">Indian Medical Excellence</span>
+          </div>
+        </div>
       ),
       content: ''
     },
     {
       id: 3,
       title: (
-        <>
-          Who
-          <br />
-          we are & what
-          <br />
-          we do
-        </>
+        <div style={{ display: 'inline-block' }}>
+          <div>
+            <span className="title-word">Who</span>
+          </div>
+          <div>
+            <span className="title-word">we are & what</span>
+          </div>
+          <div>
+            <span className="title-word">we do</span>
+          </div>
+        </div>
       ),
       content: ''
     },

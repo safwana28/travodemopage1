@@ -1,6 +1,6 @@
 .treatment-section {
   padding: 100px 0;
-  background: #0a0a0a;
+  background: linear-gradient(to right, #015c6e, #99c1c8);
   overflow: hidden;
   min-height: 100vh;
   display: flex;
@@ -28,14 +28,88 @@
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  background: var(--slide-color);
-  opacity: 0.1;
+  transition: all 0.5s ease;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.circle-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
   transition: all 0.5s ease;
 }
 
+.circle-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+/* Specialty-specific gradients */
+.treatment-slide[data-specialty="neurology"] .circle-gradient {
+  background: linear-gradient(135deg, #b24592 0%, #a044ff 50%, #7b1fa2 100%);
+  opacity: 0.6;
+}
+
+.treatment-slide[data-specialty="cardiology"] .circle-gradient {
+  background: linear-gradient(135deg, #ed7893 0%, #ff4b2b 50%, #c31432 100%);
+  opacity: 0.6;
+}
+
+.treatment-slide[data-specialty="spine surgery"] .circle-gradient {
+  background: linear-gradient(135deg, #7a288a 0%, #6c5ce7 50%, #4c288a 100%);
+  opacity: 0.6;
+}
+
+.treatment-slide[data-specialty="orthopedic"] .circle-gradient {
+  background: linear-gradient(135deg, #00b09b 0%, #38ef7d 50%, #1d976c 100%);
+  opacity: 0.6;
+}
+
+.treatment-slide[data-specialty="oncology"] .circle-gradient {
+  background: linear-gradient(135deg, #ffd200 0%, #f7971e 50%, #f7510e 100%);
+  opacity: 0.6;
+}
+
+/* Hover effects */
+.treatment-slide:hover .circle-gradient {
+  opacity: 0.4;
+}
+
+.treatment-slide:hover .circle-image {
+  opacity: 0.8;
+}
+
+/* Active states */
+.treatment-slide.active .circle-gradient {
+  opacity: 0.75;
+  filter: brightness(1.2);
+}
+
+.treatment-slide.active:hover .circle-gradient {
+  opacity: 0.5;
+}
+
+.treatment-slide.active:hover .circle-image {
+  opacity: 0.9;
+}
+
 .treatment-slide.active .circle-background {
-  opacity: 0.2;
   transform: scale(1.1);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
 }
 
 .treatment-content {

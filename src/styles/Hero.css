@@ -1,21 +1,23 @@
 .hero {
   position: relative;
-  height: 100vh;
   width: 100%;
   overflow: hidden;
-  background-color: #000;
+  background: #fdfdfd;
 }
 
 .hero-content {
   width: 100%;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   align-items: center;
+  padding-right: 2rem;
 }
 
 .hero-text {
   color: white;
+  text-align: center;
   margin-top: -100px;
 }
 
@@ -25,28 +27,26 @@
   letter-spacing: 0.34rem !important;
   font-weight: 700 !important; /* font-bold */
   font-family: 'Playfair Display', serif !important;
-  position: relative !important;
   line-height: normal;
-  color: rgb(228, 225, 225);
+  color: #0088a3;
 }
 
 .hero-text h1.hero-title::after {
-  content: '';
-  position: absolute !important;
-  left: 0 !important;
-  bottom: -0.625rem !important; /* -bottom-2.5 */
-  width: 100% !important;
-  height: 0.125rem !important; /* h-0.5 */
-  background-color: black !important;
+  content: none;
 }
 
 .hero-text h1:not(.hero-title) {
+  color: #2c4964;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
   font-size: 3rem !important;
   line-height: 1.2 !important;
   margin: 0 !important;
 }
 
 .hero-video {
+  position: relative;
+  z-index: 1;
   width: 100%;
   aspect-ratio: 16/9;
 }
@@ -68,12 +68,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
-  z-index: 2;
+  background: rgba(240, 244, 248, 0.1);
+  z-index: 1;
 }
 
 .box {
@@ -109,14 +105,14 @@
 .cta-button, .cta-button-gold {
   position: relative;
   z-index: 1;
-  background: transparent;
+  background-color: transparent;
   transition: all 0.3s ease;
   min-width: 280px;
   min-height: 50px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: 2px solid white;
-  color: white !important;
+  border: 2px solid #2c4964;
+  color: #2c4964;
   outline: none;
   display: block;
   width: 100%;
@@ -125,13 +121,20 @@
 }
 
 .cta-button:hover {
-  color: black !important;
+  background-color: #2c4964;
+  color: #f0f4f8;
 }
 
 .cta-button-gold {
-  background: #cba632;
-  border-color: #cba632;
-  color: black !important;
+  background-color: #cba632;
+  border: 2px solid #cba632;
+  color: #f0f4f8;
+  transition: all 0.3s ease;
+}
+
+.cta-button-gold:hover {
+  background-color: transparent;
+  color: #cba632;
 }
 
 .btn-fill {
@@ -214,5 +217,37 @@
   }
   100% {
     stroke-dashoffset: -1200;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.hero img {
+  transition: transform 0.3s ease-in-out;
+  animation: float 3s ease-in-out infinite;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
