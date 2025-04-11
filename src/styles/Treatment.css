@@ -42,21 +42,34 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 1;
   transition: all 0.5s ease;
 }
 
 .circle-image {
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   opacity: 0;
   transition: all 0.5s ease;
-  z-index: 1;
+  z-index: 2;
+}
+
+.treatment-slide:hover .circle-image {
+  opacity: 1;
+}
+
+.treatment-slide.active .circle-image {
+  opacity: 0;
+}
+
+.treatment-slide.active:hover .circle-image {
+  opacity: 1;
 }
 
 /* Specialty-specific gradients */
@@ -75,8 +88,8 @@
   opacity: 0.6;
 }
 
-.treatment-slide[data-specialty="orthopedic"] .circle-gradient {
-  background: linear-gradient(135deg, #00b09b 0%, #38ef7d 50%, #1d976c 100%);
+.treatment-slide[data-specialty="orthopedics"] .circle-gradient {
+  background: linear-gradient(135deg, #00b4db 0%, #0083b0 50%, #005c97 100%);
   opacity: 0.6;
 }
 
@@ -90,10 +103,6 @@
   opacity: 0.4;
 }
 
-.treatment-slide:hover .circle-image {
-  opacity: 0.8;
-}
-
 /* Active states */
 .treatment-slide.active .circle-gradient {
   opacity: 0.75;
@@ -102,10 +111,6 @@
 
 .treatment-slide.active:hover .circle-gradient {
   opacity: 0.5;
-}
-
-.treatment-slide.active:hover .circle-image {
-  opacity: 0.9;
 }
 
 .treatment-slide.active .circle-background {

@@ -5,6 +5,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import '../styles/Treatment.css';
 
+// Import images
+import cardiologyImg from '../assets/images/Treatments/cardiology.webp';
+import orthopedicImg from '../assets/images/Treatments/orthopedic.webp';
+import oncologyImg from '../assets/images/Treatments/oncology.webp';
+import neurologyImg from '../assets/images/Treatments/neurology.webp';
+import spineImg from '../assets/images/Treatments/spine.webp';
+
 const treatments = [
   {
     id: 1,
@@ -12,15 +19,17 @@ const treatments = [
     outline: 'LOGY',
     description: 'Advanced cardiac care and procedures',
     color: '#1a6dff',
-    specialty: 'Cardiology'
+    specialty: 'Cardiology',
+    image: cardiologyImg
   },
   {
     id: 2,
     title: 'ORTHO',
     outline: 'PEDIC',
     description: 'Comprehensive bone and joint care',
-    color: '#ff3366',
-    specialty: 'Orthopedics'
+    color: '#0083b0',
+    specialty: 'Orthopedics',
+    image: orthopedicImg
   },
   {
     id: 3,
@@ -28,7 +37,8 @@ const treatments = [
     outline: 'LOGY',
     description: 'Cancer treatment and care',
     color: '#00c6b4',
-    specialty: 'Oncology'
+    specialty: 'Oncology',
+    image: oncologyImg
   },
   {
     id: 4,
@@ -36,7 +46,8 @@ const treatments = [
     outline: 'LOGY',
     description: 'Brain and nervous system expertise',
     color: '#8e44ad',
-    specialty: 'Neurology'
+    specialty: 'Neurology',
+    image: neurologyImg
   },
   {
     id: 5,
@@ -44,12 +55,21 @@ const treatments = [
     outline: 'SURGERY',
     description: 'Advanced spine treatment solutions',
     color: '#e67e22',
-    specialty: 'Spine Surgery'
+    specialty: 'Spine Surgery',
+    image: spineImg
   }
 ];
 
 const Treatment = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    // Preload images
+    treatments.forEach(treatment => {
+      const img = new Image();
+      img.src = treatment.image;
+    });
+  }, []);
 
   return (
     <section className="treatment-section">
@@ -87,11 +107,7 @@ const Treatment = () => {
                 <div className="circle-background">
                   <div className="circle-gradient"></div>
                   <div className="circle-image" style={{
-                    backgroundImage: `url(/images/Treatments/${
-                      treatment.specialty.toLowerCase() === 'spine surgery' ? 'spine' :
-                      treatment.specialty.toLowerCase() === 'orthopedics' ? 'orthopedic' :
-                      treatment.specialty.toLowerCase()
-                    }.webp)`
+                    backgroundImage: `url(${treatment.image})`
                   }}></div>
                 </div>
                 <div className="treatment-content">
