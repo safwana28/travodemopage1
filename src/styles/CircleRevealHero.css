@@ -2,8 +2,8 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
-  background: linear-gradient(135deg, #006d80, #017166, #4fb3bf);
+  background: linear-gradient(135deg, #e6f7ff 0%, #ffffff 100%);
+  padding-top: 70px; /* Add padding for the header */
 }
 
 .circle-container {
@@ -20,8 +20,7 @@
 .circle {
   width: 200px;
   height: 200px;
-  background: linear-gradient(135deg, #006d80, #00897b, #4fb3bf);
-  background: linear-gradient(to right, #015c6e, #99c1c8);
+  background: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -36,12 +35,22 @@
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 1px;
-  text-align: center;
-  color: white;
+ 
+  color: rgb(7, 7, 7);
   margin: 0;
   padding: 1rem;
   line-height: 1.2;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  font-family: 'Virginia', serif;
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: #0088a3;
+  font-weight: 800;
+  letter-spacing: 0.20em;
+  padding-right: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 /* Content Section Styles */
@@ -93,7 +102,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  color: white;
+  color: rgba(0, 136, 171, 1);
   position: relative;
   z-index: 2;
 }
@@ -104,11 +113,31 @@
 }
 
 .hero-content h1 {
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   margin-bottom: 1.5rem;
-  font-weight: 700;
-  color: white;
+  font-weight: 800;
+  color: #0088a3;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 2px;
+  line-height: 1.2;
+  text-transform: capitalize;
+  font-family: 'Poppins', sans-serif;
+  max-width: 800px;
+  background: linear-gradient(45deg, #0088a3, #00b4d8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-description {
@@ -254,6 +283,63 @@
   100% {
     stroke-dashoffset: 0;
   }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.initial-text {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10%;
+  z-index: 1;
+}
+
+.initial-text-left {
+  font-size: 2.3rem;
+  color: #0088a3;
+  font-weight: 600;
+  font-family: 'Virginia', serif;
+  letter-spacing: 0.1em;
+  line-height: 2;
+  opacity: 0;
+  animation: slideInFromLeft 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.initial-text-right {
+  font-size: 2.3rem;
+  color: #0088a3;
+  font-weight: 600;
+  font-family: 'Virginia', serif;
+  letter-spacing: 0.1em;
+  line-height: 2;
+  transition: opacity 0.5s ease;
+}
+
+.initial-text.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0s 0.5s;
+}
+
+.initial-text.fade-out .initial-text-left {
+  animation: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  transform: translateX(-50px);
 }
 
 @media (max-width: 768px) {

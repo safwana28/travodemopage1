@@ -53,55 +53,59 @@ const Treatment = () => {
 
   return (
     <section className="treatment-section">
-      <Swiper
-        modules={[Autoplay, Navigation]}
-        spaceBetween={30}
-        slidesPerView={1.5}
-        centeredSlides={true}
-        loop={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-        navigation={true}
-        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        breakpoints={{
-          640: {
-            slidesPerView: 2.5,
-          },
-          1024: {
-            slidesPerView: 3.5,
-          },
-        }}
-      >
-        {treatments.map((treatment, index) => (
-          <SwiperSlide key={treatment.id}>
-            <div 
-              className={`treatment-slide ${index === activeIndex ? 'active' : ''}`}
-              data-specialty={treatment.specialty.toLowerCase()}
-              style={{'--slide-color': treatment.color}}
-            >
-              <div className="circle-background">
-                <div className="circle-gradient"></div>
-                <div className="circle-image" style={{
-                  backgroundImage: `url(/images/Treatments/${
-                    treatment.specialty.toLowerCase() === 'spine surgery' ? 'spine' :
-                    treatment.specialty.toLowerCase() === 'orthopedics' ? 'orthopedic' :
-                    treatment.specialty.toLowerCase()
-                  }.webp)`
-                }}></div>
+      <h2 className="treatment-heading">Treatments</h2>
+      <div className="treatment-slider-container">
+        <Swiper
+          modules={[Autoplay, Navigation]}
+          spaceBetween={30}
+          slidesPerView={1.5}
+          centeredSlides={true}
+          loop={true}
+          speed={800}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+          }}
+          navigation={true}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+          breakpoints={{
+            640: {
+              slidesPerView: 2.5,
+            },
+            1024: {
+              slidesPerView: 3.5,
+            },
+          }}
+        >
+          {treatments.map((treatment, index) => (
+            <SwiperSlide key={treatment.id}>
+              <div 
+                className={`treatment-slide ${index === activeIndex ? 'active' : ''}`}
+                data-specialty={treatment.specialty.toLowerCase()}
+                style={{'--slide-color': treatment.color}}
+              >
+                <div className="circle-background">
+                  <div className="circle-gradient"></div>
+                  <div className="circle-image" style={{
+                    backgroundImage: `url(/images/Treatments/${
+                      treatment.specialty.toLowerCase() === 'spine surgery' ? 'spine' :
+                      treatment.specialty.toLowerCase() === 'orthopedics' ? 'orthopedic' :
+                      treatment.specialty.toLowerCase()
+                    }.webp)`
+                  }}></div>
+                </div>
+                <div className="treatment-content">
+                  <h2 className="treatment-title">
+                    <span className="bold-text">{treatment.title}</span>
+                    <span className="outline-text">{treatment.outline}</span>
+                  </h2>
+                  <p className="treatment-description">{treatment.description}</p>
+                </div>
               </div>
-              <div className="treatment-content">
-                <h2 className="treatment-title">
-                  <span className="bold-text">{treatment.title}</span>
-                  <span className="outline-text">{treatment.outline}</span>
-                </h2>
-                <p className="treatment-description">{treatment.description}</p>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </section>
   );
 };

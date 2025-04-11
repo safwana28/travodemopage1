@@ -1,9 +1,10 @@
 .treatment-section {
   padding: 100px 0;
-  background: linear-gradient(to right, #015c6e, #99c1c8);
+  background: white;
   overflow: hidden;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -119,6 +120,23 @@
   color: #fff;
 }
 
+.treatment-heading {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #0088a3;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: 1px;
+  font-family: 'Virginia', serif;
+  font-size: 3.5rem;
+  line-height: 1.9;
+  color: #0088a3;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+  padding-right: 2rem;
+  margin-bottom: 1rem;
+}
+
 .treatment-title {
   font-size: 4rem;
   margin-bottom: 1rem;
@@ -145,6 +163,11 @@
 .treatment-slide.active .treatment-description {
   opacity: 1;
   transform: translateY(0);
+}
+
+.treatment-slider-container {
+  width: 100%;
+  margin-top: 2rem;
 }
 
 /* Swiper Navigation Styles */

@@ -1,6 +1,6 @@
 .about-section {
   padding: 80px 20px;
-  background: linear-gradient(to right, #b3d5db  , #02748a );
+  background:white;
 }
 
 .about-grid {
@@ -62,7 +62,7 @@
   font-family: 'Brillant', serif;
   font-size: 28px;
   font-weight: 300;
-  color: #fff;
+  color: #0088a3;
   margin-bottom: 20px;
   transition: color 0.3s ease;
   line-height: 1.5;
@@ -76,7 +76,7 @@
 .box-content {
   font-size: 1rem;
   line-height: 1.6;
-  color: #f9f6f6;
+  color: #0088a3;
   margin-bottom: 1.5rem;
   margin-top: 0;
   letter-spacing: 0.06em;
@@ -89,7 +89,7 @@
 .box-content:nth-of-type(4) {
   font-size: 2rem;
   line-height: 1.6;
-  color: #ffffff;
+  color: #0088a3;
   margin-bottom: 1.5rem;
   margin-top: 0;
   letter-spacing: 0.06em;
@@ -102,12 +102,11 @@
 .about-box:nth-child(2) .box-title {
   font-family: 'Virginia', serif;
   font-size: 3.5rem;
-  line-height: 1.2;
-  color: #fff;
-  font-weight: 300;
-  letter-spacing: 0.03em;
+  line-height: 1.9;
+  color: #0088a3;
+  font-weight: 500;
+  letter-spacing: 0.20em;
   padding-right: 2rem;
-  text-transform: capitalize;
   margin-bottom: 1rem;
 }
 
@@ -248,11 +247,26 @@
 }
 
 .about-box.active .box-title {
-  color: #fff;
+  color: #0088a3;
 }
 
 .about-box.active .box-content {
-  color: rgba(255, 255, 255, 0.9);
+  color: #0088a3;
+}
+
+.about-box:hover .box-title {
+  color: white !important;
+}
+
+.about-box:hover .box-content {
+  color: white !important;
+}
+
+.about-box:hover h2,
+.about-box:hover h3,
+.about-box:hover p {
+  color: white !important;
+  transition: color 0.3s ease;
 }
 
 @media (min-width: 640px) {
@@ -291,4 +305,36 @@
 
 .section-about {
   background-color: #4cabbe;
+}
+
+.about-section h2,
+.about-section h3,
+.about-section p,
+.about-section li {
+  color: #0088a3;
+}
+
+.about-section a,
+.about-section a:hover {
+  color: #0088a3;
+}
+
+.about-title {
+  color: #0088a3;
+}
+
+.about-subtitle {
+  color: #0088a3;
+}
+
+.about-description {
+  color: #0088a3;
+}
+
+.about-grid-item h3 {
+  color: #0088a3;
+}
+
+.about-grid-item p {
+  color: #0088a3;
 }
