@@ -83,7 +83,7 @@ const CircleRevealHero = () => {
       <div className="hero-container" ref={containerRef}>
         <div className={`initial-text ${isExpanded ? 'fade-out' : ''}`}>
           <div className="initial-text-left">
-            World-class treatment, <br></br>seamless care <br></br> all in one destination</div>
+            World-Class Treatment, <br></br>Seamless Care All In <br></br> One Destination</div>
         </div>
         <div className={`circle-container ${isExpanded ? 'expanded' : ''}`}>
           <div className="circle" ref={circleRef}>
